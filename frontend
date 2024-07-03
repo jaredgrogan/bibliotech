@@ -1,0 +1,95 @@
+#BiblioTech AI // FrontEnd (next.js)
+// pages/index.js
+import React, { useState } from 'react';
+import axios from 'axios';
+
+export default function Home() {
+  const [files, setFiles] = useState([]);
+  const [query, setQuery] = useState('');
+  const [result, setResult] = useState('');
+  const [synthesize, setSynthesize] = useState(false);
+  const [sortBy, setSortBy] = useState('relevance');
+  const [citationStyle, setCitationStyle] = useState('apa');
+
+  const handleFileUpload = async (event) => {
+    const uploadedFiles = event.target.files;
+    const formData = new FormData();
+    for (let i = 0; i < uploadedFiles.length; i++) {
+      formData.append('files', uploadedFiles[i]);
+    }
+    try {
+      await axios.post('/api/upload', formData);
+      setFiles([...files, ...uploadedFiles]);
+    } catch (error) {
+      console.error('Error uploading files:', error);
+    }
+  };
+
+  const handleQuery = async () => {
+    try {
+      const response = await axios.post('/api/query', { query, synthesize, sortBy, citationStyle });
+      setResult(response.data.result);
+    } catch (error) {
+      console.error('Error querying:', error);
+    }
+  };
+
+  return (
+    <div className="container">
+      <h1>BiblioTech</h1>
+      <div className="upload-area">
+        <input type="file" multiple onChange={handleFileUpload} />
+        <p>Drag and drop files here or click to upload</p>
+      </div>
+      <div className="query-area">
+        <textarea
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Enter your query here"
+        />
+        <button onClick={handleQuery}>Search</button>
+      </div>
+      <div className="options">
+        <label>
+          <input
+            type="checkbox"
+            checked={synthesize}
+            onChange={() => setSynthesize(!synthesize)}
+          />
+          Synthesize results
+        </label>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="relevance">Sort by Relevance</option>
+          <option value="newness">Sort by Newness</option>
+          <option value="impact_factor">Sort by Impact Factor</option>
+        </select>
+        <select value={citationStyle} onChange={(e) => setCitationStyle(e.target.value)}>
+          <option value="apa">APA</option>
+          <option value="mla">MLA</option>
+          <option value="chicago">Chicago</option>
+        </select>
+      </div>
+      <div className="results">
+        <h2>Results:</h2>
+        <pre>{result}</pre>
+      </div>
+      <style jsx>{`
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #1a1a1a;
+          color: #ffffff;
+        }
+        .upload-area, .query-area, .options, .results {
+          margin-bottom: 20px;
+        }
+        textarea, input, select, button {
+          background-color: #2a2a2a;
+          color: #ffffff;
+          border: 1px solid #3a3a3a;
+        }
+      `}</style>
+    </div>
+  );
+}
