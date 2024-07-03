@@ -1,4 +1,4 @@
-# bibliotech
+# Bibliotech AI
 BiblioTech AI is a cutting-edge AI-powered writing assistant that transforms spoken words into polished prose. It leverages advanced language models and natural language processing techniques to provide a seamless dictation-to-writing experience.
 Features
 
