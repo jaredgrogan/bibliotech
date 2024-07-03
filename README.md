@@ -1,12 +1,7 @@
 # Bibliotech AI
-BiblioTech AI is a cutting-edge AI-powered writing assistant that transforms spoken words into polished prose. It leverages advanced language models and natural language processing techniques to provide a seamless dictation-to-writing experience.
-Features
+BiblioTech AI is a cutting-edge AI-powered writing assistant that aids in research based on bibliographies. It leverages large language models orchestrated in an agent to provide RAG functionality across a user's bibliography.
 
-🎙️ Real-time speech-to-text conversion
-🧠 AI-powered text refinement and enhancement
-📝 Multiple writing styles (e.g., academic, journalistic, creative)
-💻 Cross-platform support (iOS app and web interface)
-🔒 Privacy-focused with optional on-device processing
+Features
 
 Quick Start
 Prerequisites
@@ -19,7 +14,7 @@ A Pinecone API key for vector database
 Installation
 
 Clone the repository:
-Copygit clone https://github.com/yourusername/bibliotech-ai.git
+Copygit clone https://github.com/jaredgrogan/bibliotech.git
 cd bibliotech-ai
 
 Install backend dependencies:
@@ -60,6 +55,6 @@ FastAPI for the efficient Python web framework
 React for the frontend framework
 
 Contact
-For support or inquiries, please open an issue or contact us at support@bibliotech-ai.com.
+For support or inquiries, please open an issue or contact us at support@bibliotech.ai
 
 Made with ❤️ by the BiblioTech AI Team
