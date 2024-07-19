@@ -1,5 +1,6 @@
-#BiblioTech AI // Front End Development (next.js)
+#BiblioTech AI // Front End Development (next.js) - beta development
 // pages/index.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
