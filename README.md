@@ -1,5 +1,5 @@
 # Bibliotech AI
-BiblioTech AI is a cutting-edge research productivity tool that aids in research based on bibliographies. It allows users to radically increase their cognitive bandwidth when interfacing with source data and scientific literature. 
+BiblioTech AI is a cutting-edge research productivity tool that aids in research based on bibliographies. Stay tuned for web app interface. It allows users to radically increase their cognitive bandwidth when interfacing with source data and scientific literature. 
 
 Bibliotech AI leverages large language models orchestrated in an agent to provide RAG functionality across a user's bibliography. Unlock Generative AI for summarization, smart semantic search, and auto-citation. User feedback, contributions, and attributions are welcome.
 
